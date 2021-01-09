@@ -69,17 +69,17 @@ func init() {
 				Help:  "Owncloud",
 			}, {
 				Value: "sharepoint",
-				Help:  "Sharepoint",
+				Help:  "Sharepoint Online, authenticated by Microsoft OneDrive account.",
 			}, {
 				Value: "sharepoint-ntlm",
-				Help:  "Sharepoint with NTLM authentication. Usually self-hosted instances.",
+				Help:  "Sharepoint with NTLM authentication. Usually self-hosted or company instances.",
 			}, {
 				Value: "other",
 				Help:  "Other site/service or software",
 			}},
 		}, {
 			Name: "user",
-			Help: "User name",
+			Help: "User name. In case NTLM authentication is used, the username should be in the format 'Domain\\User'.",
 		}, {
 			Name:       "pass",
 			Help:       "Password.",
@@ -476,7 +476,7 @@ func (f *Fs) setQuirks(ctx context.Context, vendor string) error {
 		// with the depth set to 0
 		f.retryWithZeroDepth = true
 	case "sharepoint-ntlm":
-		// Self-hosted Sharepoint often uses NTLM authentication
+		// Sharepoint with NTLM authentication
 		// See comment above
 		f.retryWithZeroDepth = true
 	case "other":
