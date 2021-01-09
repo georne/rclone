@@ -72,7 +72,7 @@ func init() {
 				Help:  "Sharepoint",
 			}, {
 				Value: "sharepoint-ntlm",
-				Help:  "Sharepoint with NTLM authentication. Usually self-hosted instances.",
+				Help:  "Sharepoint with NTLM authentication. Usually self-hosted or company instances.",
 			}, {
 				Value: "other",
 				Help:  "Other site/service or software",
@@ -476,7 +476,7 @@ func (f *Fs) setQuirks(ctx context.Context, vendor string) error {
 		// with the depth set to 0
 		f.retryWithZeroDepth = true
 	case "sharepoint-ntlm":
-		// Self-hosted Sharepoint often uses NTLM authentication
+		// Self-hosted Sharepoint that uses NTLM authentication
 		// See comment above
 		f.retryWithZeroDepth = true
 	case "other":

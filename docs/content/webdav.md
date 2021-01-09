@@ -136,6 +136,8 @@ Name of the Webdav site/service/software you are using
         - Owncloud
     - "sharepoint"
         - Sharepoint
+    - "sharepoint-ntlm"
+        - Sharepoint with NTLM authentication
     - "other"
         - Other site/service or software
 
@@ -147,6 +149,8 @@ User name
 - Env Var:     RCLONE_WEBDAV_USER
 - Type:        string
 - Default:     ""
+
+In case vendor mode `sharepoint-ntlm` is used, the user name is in the form `DOMAIN\user`
 
 #### --webdav-pass
 
@@ -241,6 +245,10 @@ vendor = other
 user = YourEmailAddress
 pass = encryptedpassword
 ```
+
+### Sharepoint with NTLM ###
+
+Hosted Sharepoint instances that are not tied to OneDrive accounts can use NTLM authentication.
 
 #### Required Flags for SharePoint ####
 As SharePoint does some special things with uploaded documents, you won't be able to use the documents size or the documents hash to compare if a file has been changed since the upload / which file is newer.
